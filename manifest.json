@@ -1,0 +1,32 @@
+{
+	"manifest_version": 2,
+
+	"name": "Tele-Quebec Downloader",
+	"description": "Dowload Tele-Quebec shows for later viewing",
+	"version": "2.2",
+
+	"browser_action": {
+		"default_title": "TQ Downloader",
+		"default_icon": "telequebec.png"
+	},
+	"content_scripts":[
+		{
+			"matches": ["*://*.telequebec.tv/*"],
+			"js": ["jquery-3.1.1.min.js", "tqmodifypage.js"]
+		}
+	],
+	"background": {
+		"page": "tqdownloader.html",
+		"persistent": true
+	},
+
+	"permissions": [
+		"tabs",
+		"downloads",
+		"webNavigation",
+		"clipboardRead",
+		"clipboardWrite",
+		"*://*.telequebec.tv/*",
+		"webRequest"
+	]
+}
